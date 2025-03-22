@@ -8,14 +8,20 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 public class AnimalPersonCommunicationTests {
-    NonScientist nonScientist = Mockito.mock(NonScientist.class);
-    Scientist scientist = Mockito.mock(Scientist.class);
+    private NonScientist nonScientist;
+    private Scientist scientist;
 
-    Dog dog = new Dog();
-    Cat cat = new Cat();
+    private Dog dog;
+    private Cat cat;
 
     @BeforeEach
     public void setUp() {
+        dog = new Dog();
+        cat = new Cat();
+
+        nonScientist = Mockito.mock(NonScientist.class);
+        scientist = Mockito.mock(Scientist.class);
+
         Mockito.when(nonScientist.hasAnimalTranslator()).thenReturn(false);
         Mockito.when(scientist.hasAnimalTranslator()).thenReturn(true);
 
